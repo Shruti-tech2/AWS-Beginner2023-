@@ -68,3 +68,4 @@ Resources:
       EventBusName: YourEventBusName
       Principal: "arn:aws:iam::123456789012:role/EventBusRole"
 ```
+**NOTE**:::::::::::We don't need to use IAM Role of eventBus with other AWS reources if both EventBridge and AWS Resources are of same account.
