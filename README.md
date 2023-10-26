@@ -73,3 +73,19 @@ Resources:
 ### VPC (Virtual Private Cloud):
 Is a logically isolated portion of the AWS cloud within a region.
 Custom VPCs allow you to design your network architecture and security settings to meet your organization's specific needs. You have full control over the IP address range, subnets, route tables, security groups, and other networking configurations. This level of control is essential for isolating resources
+
+### Subnet:
+Subnet paly important role to create secure infrastructure in AWS. Each Subnet have associated rout table which control the routing of traffic within the subnet. Subnets are used to route traffic between resources.
+- **Public Subnet**: hold all resources which can be directly accessed on internet.
+- **Private subnet**: hold all resources which can not be directly accessed by internet. But they can be accessed by internet through use of NAT(Network Address Translation) Gateway , mean NAT Gateway can be deployed in Public IP instance and then Private IP instance of Private subnet will comminicate with it and accessed to internet.
+
+ **NOTE**::::::::::::::::::In simple, Public Subnet Route Table hold `Internet Gateway` IP-Address as target for communication rule on traffic and Private Subnet Route Table take `nat-gateway-id` as target. These route table conssits rule for tarffic to access the internet.
+ In more simple Intsance with the private address wants to connect to the internet, so to connect to the internet, it will need a public address that can access the internet, then here NAT gateway forward the connections to the internet.
+ **NAT Gateway**: forwards connections to the internet.
+
+### Security Groups and Network ACLs:
+Both components used to control network traffic and enhance the security of resources withing VPC. Where `NACLs`are the first which apply at `Subnet`level, they apply only to traffic enterning / exiting the subnet. So if the instance A of diifer availabilty zones of same VPC or of differ VPC, want to communicate with other instance B, then that traffic will exit from it's NACL(,there will be some rules for that traffic to move out)and then at  B instance's side's NACL will have rule to allow same traffic(From instance A) to be in. In NACL case rules for inbound and outbound for a traffic is must as NACL is stateless.
+Other side Security Groups are statefull firewall, that mean only one rule is required for traffic. As security groups apply at instance level they know that if the connection is allowed for inbound traffic, it is ok for outbound too.
+In Simple, NACLs andSecurityGroup will allow communication of traffic between two instances with use of some Rules. NACLs use alwyas two rule for both of communcation between instances where Security Group use only single rule to allow both way communication.
+
+### EC2:(Elastic Compute Cloud)
