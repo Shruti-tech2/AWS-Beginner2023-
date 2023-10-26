@@ -1,16 +1,18 @@
 # AWS-Beginner2023-
 
 ## SAML Authentiation:
-SAML is used to enable SSO(Single Sign On). Where sso is a term used for a login method where a company configures all it's applications in a such a way that the user can log in to all of these apps by just signing in once.
+SAML is used to enable SSO(Single Sign On). Where sso is a term used for a login method where a company configures all it's applications in a such a way that the user can log in to all of these apps by just signing in one of them.
 SAML Authetication Flow:
+#
 **SAML Request** ======> **SAML Response** ======> **Key Generation**
-**SAML Request**: terms included:
+#
+- **SAML Request**: terms included:
 1. NameID- The username/email address or phone number which is used to identify a user.
 2. AssertionConsumerServiceURL- The SAML URL interface of the SP(`Service Provider` like Gmail) where IP(`Identity Provider` like Google) sends the auth token.
-**SAML Response**:
+- **SAML Response**:
 1. Assertion- is an XML document that has the details of the user. This contains the timestamp of the user login and the method of authentication used(eg: two factor authentication & etc.)
 2. Signature- is a Base64 encoded string which  protects integrity of the assertion. Like if an attacker tries to change the username in assertion to the victim's username, the signature will prevent the hacker from logging in as the user.
-**Key Generation**:
+- **Key Generation**:
 The identity Provider(like Google) generate the `private key` and a `public key`. It signs the assertion with private key. The public key is shared with the Service Provider(like Gmail) which used it to verify the SAML response and then log the user in.
 
 ## IAM Role `AWS::IAM::Role`
