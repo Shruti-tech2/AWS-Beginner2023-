@@ -69,3 +69,7 @@ Resources:
       Principal: "arn:aws:iam::123456789012:role/EventBusRole"
 ```
 **NOTE**:::::::::::We don't need to use IAM Role of eventBus with other AWS reources if both EventBridge and AWS Resources are of same account.
+
+### VPC (Virtual Private Cloud):
+Is a logically isolated portion of the AWS cloud within a region.
+Custom VPCs allow you to design your network architecture and security settings to meet your organization's specific needs. You have full control over the IP address range, subnets, route tables, security groups, and other networking configurations. This level of control is essential for isolating resources
